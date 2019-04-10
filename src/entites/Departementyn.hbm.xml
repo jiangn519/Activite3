@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-04-10 09:40:27 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entites.Departementyn" table="DEPARTEMENTYN" schema="CSTTEAM" optimistic-lock="version">
+        <id name="idd" type="string">
+            <column name="IDD" length="6" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomdepartement" type="string">
+            <column name="NOMDEPARTEMENT" length="30" not-null="true" />
+        </property>
+        <property name="telephone" type="string">
+            <column name="TELEPHONE" length="10" unique="true" />
+        </property>
+        <set name="employeeyns" table="EMPLOYEEYN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDD" length="6" />
+            </key>
+            <one-to-many class="entites.Employeeyn" />
+        </set>
+    </class>
+</hibernate-mapping>

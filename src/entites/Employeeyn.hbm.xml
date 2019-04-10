@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-04-10 09:40:27 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entites.Employeeyn" table="EMPLOYEEYN" schema="CSTTEAM" optimistic-lock="version">
+        <id name="matricule" type="string">
+            <column name="MATRICULE" length="6" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="departementyn" class="entites.Departementyn" fetch="select">
+            <column name="IDD" length="6" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="NOM" length="30" not-null="true" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="PRENOM" length="30" not-null="true" />
+        </property>
+        <property name="salaire" type="big_decimal">
+            <column name="SALAIRE" precision="8" />
+        </property>
+    </class>
+</hibernate-mapping>
